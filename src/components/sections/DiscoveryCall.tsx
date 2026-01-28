@@ -34,8 +34,8 @@ export function DiscoveryCall() {
               {/* Left - Image */}
               <div className="relative md:col-span-2 h-64 md:h-auto">
                 <Image
-                  src="/images/jayden-kettlebell.jpg"
-                  alt="Jayden Pileggi training - Functional Medicine Practitioner"
+                  src="/images/jayden-discovery.jpg"
+                  alt="Jayden Pileggi kettlebell training - Functional Medicine Practitioner"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 40vw"
