@@ -141,7 +141,7 @@ export function Biomarkers() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto"
+          className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-6xl mx-auto"
         >
           {categories.map((category, index) => (
             <motion.div
@@ -154,28 +154,28 @@ export function Biomarkers() {
               }}
               className="group relative"
             >
-              <div className="relative h-full overflow-hidden rounded-2xl border border-border/50 bg-card p-5 transition-all duration-300 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5">
+              <div className="relative h-full overflow-hidden rounded-xl sm:rounded-2xl border border-border/50 bg-card p-3 sm:p-5 transition-all duration-300 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5">
                 {/* Gradient background on hover */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
 
                 {/* Icon */}
-                <div className={`relative w-12 h-12 rounded-xl bg-gradient-to-br ${category.color} flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                  <category.icon className="w-6 h-6 text-white" />
+                <div className={`relative w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br ${category.color} flex items-center justify-center mb-3 sm:mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                  <category.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </div>
 
                 {/* Content */}
                 <div className="relative">
-                  <h3 className="font-semibold text-foreground mb-1 group-hover:text-primary transition-colors">
+                  <h3 className="font-semibold text-sm sm:text-base text-foreground mb-0.5 sm:mb-1 group-hover:text-primary transition-colors">
                     {category.title}
                   </h3>
-                  <p className="text-xs text-muted-foreground mb-3">
+                  <p className="text-[10px] sm:text-xs text-muted-foreground mb-2 sm:mb-3 hidden sm:block">
                     {category.description}
                   </p>
 
                   {/* Marker count badge */}
-                  <div className="inline-flex items-center gap-1.5 px-2 py-1 rounded-full bg-muted/50 text-xs text-muted-foreground">
-                    <TrendingUp className="w-3 h-3" />
-                    {category.markers} markers
+                  <div className="inline-flex items-center gap-1 sm:gap-1.5 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full bg-muted/50 text-[10px] sm:text-xs text-muted-foreground">
+                    <TrendingUp className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
+                    {category.markers}
                   </div>
                 </div>
 

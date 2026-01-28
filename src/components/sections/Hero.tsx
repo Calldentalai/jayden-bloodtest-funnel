@@ -17,12 +17,12 @@ const countries = ["USA", "UK", "Australia", "New Zealand"];
 
 export function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+    <section className="relative min-h-[100svh] lg:min-h-[90vh] flex items-center overflow-hidden pt-16 lg:pt-0">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5" />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-32 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left Column - Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -49,7 +49,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.1]"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.15]"
             >
               Your Doctor Says{" "}
               <span className="text-primary">You&apos;re Fine.</span>
@@ -90,24 +90,24 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4 pt-4"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4"
             >
-              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="w-full sm:w-auto">
                 <Button
                   size="lg"
                   onClick={scrollToProducts}
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-base font-semibold shadow-lg hover:shadow-xl transition-shadow"
+                  className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground px-6 sm:px-8 py-5 sm:py-6 text-base font-semibold shadow-lg hover:shadow-xl transition-shadow"
                 >
                   Get Your Blood Test
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </motion.div>
-              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="w-full sm:w-auto">
                 <Button
                   size="lg"
                   variant="outline"
                   onClick={scrollToDiscoveryCall}
-                  className="border-primary/30 hover:bg-primary/5 px-8 py-6 text-base hover:border-primary/50 transition-colors"
+                  className="w-full sm:w-auto border-primary/30 hover:bg-primary/5 px-6 sm:px-8 py-5 sm:py-6 text-base hover:border-primary/50 transition-colors"
                 >
                   <Phone className="mr-2 w-5 h-5" />
                   Book Discovery Call
@@ -138,14 +138,14 @@ export function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Right Column - Image */}
+          {/* Right Column - Image (shows first on mobile via order) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="relative flex justify-center"
+            className="relative flex justify-center order-first lg:order-last"
           >
-            <div className="relative w-full max-w-md">
+            <div className="relative w-full max-w-[280px] sm:max-w-sm lg:max-w-md">
               <div className="relative rounded-2xl overflow-hidden border border-border/50 shadow-2xl">
                 <Image
                   src="/images/jayden-hero.jpg"
