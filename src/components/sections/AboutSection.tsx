@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Award, GraduationCap, Users, Globe, Sparkles } from "lucide-react";
+import { Award, GraduationCap, Users, Globe, Heart } from "lucide-react";
 import Image from "next/image";
 
 const credentials = [
@@ -92,28 +92,22 @@ export function AboutSection() {
             />
 
             {/* Main image container */}
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              transition={{ type: "spring", stiffness: 300 }}
-              className="relative group"
-            >
+            <div className="relative">
               <div className="aspect-[4/5] relative rounded-2xl overflow-hidden bg-muted shadow-2xl">
                 <Image
                   src="/images/jayden-about.jpg"
                   alt="Jayden Pileggi on rowing machine - Functional Medicine Practitioner"
                   fill
-                  className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                  className="object-cover object-center"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   quality={95}
                 />
-                {/* Gradient overlay on hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
 
               {/* Experience badge */}
               <motion.div
-                initial={{ opacity: 0, scale: 0, rotate: -10 }}
-                whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.5, type: "spring", stiffness: 200 }}
                 className="absolute -bottom-4 -right-4 sm:bottom-6 sm:-right-6"
@@ -121,7 +115,7 @@ export function AboutSection() {
                 <div className="bg-card border border-border/50 rounded-xl p-3 sm:p-4 shadow-xl">
                   <div className="flex items-center gap-2 sm:gap-3">
                     <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center">
-                      <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                      <Heart className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="white" />
                     </div>
                     <div>
                       <p className="text-xl sm:text-2xl font-bold text-foreground">2500+</p>
@@ -130,7 +124,7 @@ export function AboutSection() {
                   </div>
                 </div>
               </motion.div>
-            </motion.div>
+            </div>
           </motion.div>
 
           {/* Content Column */}
