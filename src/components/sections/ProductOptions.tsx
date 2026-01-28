@@ -41,25 +41,25 @@ const products = [
 
 export function ProductOptions() {
   return (
-    <section id="products" className="py-20 lg:py-28 bg-card scroll-mt-16">
+    <section id="products" className="py-12 sm:py-20 lg:py-28 bg-card scroll-mt-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4">
             Choose Your <span className="text-primary">Test</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
             Select the comprehensive blood test designed specifically for your biology
           </p>
         </motion.div>
 
         {/* Product Cards */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 max-w-5xl mx-auto">
           {products.map((product, index) => (
             <motion.div
               key={product.id}

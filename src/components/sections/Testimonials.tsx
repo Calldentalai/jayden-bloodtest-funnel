@@ -34,19 +34,19 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section className="py-20 lg:py-28 bg-background">
+    <section className="py-12 sm:py-20 lg:py-28 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4">
             Real Results from <span className="text-primary">Real People</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
             Join thousands who've discovered what their standard blood tests missed
           </p>
         </motion.div>
@@ -86,7 +86,7 @@ export function Testimonials() {
         )}
 
         {/* Written Testimonials Grid */}
-        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 max-w-5xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}

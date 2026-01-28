@@ -25,7 +25,7 @@ const credentials = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-20 lg:py-28 bg-card scroll-mt-16">
+    <section id="about" className="py-12 sm:py-20 lg:py-28 bg-card scroll-mt-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-6xl mx-auto">
           {/* Image */}
@@ -55,14 +55,14 @@ export function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4">
               Meet <span className="text-primary">Jayden Pileggi</span>
             </h2>
-            <p className="text-lg text-muted-foreground mb-6">
+            <p className="text-base sm:text-lg text-muted-foreground mb-4 sm:mb-6">
               Certified Functional Medicine Practitioner
             </p>
 
-            <div className="space-y-4 text-muted-foreground mb-8">
+            <div className="space-y-3 sm:space-y-4 text-sm sm:text-base text-muted-foreground mb-6 sm:mb-8">
               <p>
                 After years of seeing patients fall through the cracks of conventional
                 medicine — told they were "fine" when they clearly weren't — Jayden

@@ -54,19 +54,19 @@ const faqs = [
 
 export function FAQ() {
   return (
-    <section id="faq" className="py-20 lg:py-28 bg-background scroll-mt-16">
+    <section id="faq" className="py-12 sm:py-20 lg:py-28 bg-background scroll-mt-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4">
             Frequently Asked <span className="text-primary">Questions</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
             Everything you need to know about our comprehensive blood testing
           </p>
         </motion.div>
