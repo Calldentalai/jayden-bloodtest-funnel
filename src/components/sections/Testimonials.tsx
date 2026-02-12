@@ -1,9 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Star, Quote, Play } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { VIDEO_TESTIMONIALS_CONFIG } from "@/lib/config";
+import { useInView } from "@/lib/hooks/useInView";
 
 const testimonials = [
   {
@@ -33,15 +33,14 @@ const testimonials = [
 ];
 
 export function Testimonials() {
+  const { ref, isInView } = useInView();
+
   return (
     <section className="py-12 sm:py-20 lg:py-28 bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div ref={ref} className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-8 sm:mb-16"
+        <div
+          className={`text-center mb-8 sm:mb-16 ${isInView ? "animate-fade-in-up" : "opacity-0"}`}
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4">
             Real Results from <span className="text-primary">Real People</span>
@@ -49,15 +48,12 @@ export function Testimonials() {
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
             Join thousands who've discovered what their standard blood tests missed
           </p>
-        </motion.div>
+        </div>
 
         {/* Video Testimonials - Shows when enabled */}
         {VIDEO_TESTIMONIALS_CONFIG.enabled && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12"
+          <div
+            className={`grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12 ${isInView ? "animate-fade-in-up delay-200" : "opacity-0"}`}
           >
             {VIDEO_TESTIMONIALS_CONFIG.testimonials.map((video, index) => (
               <div
@@ -82,21 +78,17 @@ export function Testimonials() {
                 )}
               </div>
             ))}
-          </motion.div>
+          </div>
         )}
 
         {/* Written Testimonials Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 max-w-5xl mx-auto">
           {testimonials.map((testimonial, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ y: -4 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 * index }}
+              className={`${isInView ? `animate-fade-in-up delay-${(index + 1) * 100}` : "opacity-0"}`}
             >
-              <Card className="h-full border-border/50 hover:border-primary/30 hover:shadow-xl transition-all duration-300 relative overflow-hidden group">
+              <Card className="h-full border-border/50 hover:border-primary/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group">
                 {/* Decorative gradient background */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary/5 to-transparent rounded-bl-full" />
 
@@ -139,17 +131,13 @@ export function Testimonials() {
                   </div>
                 </CardContent>
               </Card>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Trust Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-          className="flex flex-wrap justify-center gap-8 sm:gap-16 mt-16 pt-8 border-t border-border/50"
+        <div
+          className={`flex flex-wrap justify-center gap-8 sm:gap-16 mt-16 pt-8 border-t border-border/50 ${isInView ? "animate-fade-in-up delay-500" : "opacity-0"}`}
         >
           <div className="text-center">
             <p className="text-4xl font-bold text-primary">4.9/5</p>
@@ -163,15 +151,11 @@ export function Testimonials() {
             <p className="text-4xl font-bold text-primary">15+</p>
             <p className="text-sm text-muted-foreground">Countries Served</p>
           </div>
-        </motion.div>
+        </div>
 
         {/* Link to full testimonials */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-          className="text-center mt-8"
+        <div
+          className={`text-center mt-8 ${isInView ? "animate-fade-in delay-500" : "opacity-0"}`}
         >
           <a
             href="https://www.jaydenpileggifunctionalmedicine.com/testimonials"
@@ -181,7 +165,7 @@ export function Testimonials() {
           >
             View more testimonials on our main website
           </a>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

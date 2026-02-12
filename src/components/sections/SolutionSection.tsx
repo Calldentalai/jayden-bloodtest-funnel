@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Check, X } from "lucide-react";
+import { useInView } from "@/lib/hooks/useInView";
 
 const comparisons = [
   {
@@ -27,15 +27,14 @@ const comparisons = [
 ];
 
 export function SolutionSection() {
+  const { ref, isInView } = useInView();
+
   return (
     <section className="py-20 lg:py-28 bg-card">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div ref={ref} className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
+        <div
+          className={`text-center mb-16 ${isInView ? "animate-fade-in-up" : "opacity-0"}`}
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
             Test, <span className="text-primary">Don't Guess.</span>
@@ -44,15 +43,11 @@ export function SolutionSection() {
             A comprehensive blood test that goes beyond "normal" to show you
             what optimal health really looks like
           </p>
-        </motion.div>
+        </div>
 
         {/* Comparison Table */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-          className="max-w-4xl mx-auto"
+        <div
+          className={`max-w-4xl mx-auto ${isInView ? "animate-fade-in-up delay-200" : "opacity-0"}`}
         >
           <div className="grid grid-cols-2 gap-4 sm:gap-6">
             {/* Headers */}
@@ -71,13 +66,9 @@ export function SolutionSection() {
 
             {/* Comparison Rows */}
             {comparisons.map((row, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 * index }}
-                className="contents"
+                className={`contents ${isInView ? `animate-fade-in delay-${Math.min((index + 1) * 100, 500)}` : ""}`}
               >
                 <div className="bg-background rounded-lg p-4 flex items-center gap-3 border border-border/50">
                   <X className="w-5 h-5 text-destructive flex-shrink-0" />
@@ -91,10 +82,10 @@ export function SolutionSection() {
                     {row.optimal}
                   </span>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

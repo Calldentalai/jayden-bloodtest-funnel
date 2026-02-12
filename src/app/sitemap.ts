@@ -10,24 +10,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1,
+      images: [
+        `${baseUrl}/images/jayden-hero.jpg`,
+        `${baseUrl}/images/og-image.jpg`,
+      ],
     },
     {
-      url: `${baseUrl}/#products`,
+      url: `${baseUrl}/privacy`,
       lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
+      changeFrequency: "yearly",
+      priority: 0.3,
     },
     {
-      url: `${baseUrl}/#how-it-works`,
+      url: `${baseUrl}/terms`,
       lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
+      changeFrequency: "yearly",
+      priority: 0.3,
     },
     {
-      url: `${baseUrl}/#discovery-call`,
+      url: `${baseUrl}/refund`,
       lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
+      changeFrequency: "yearly",
+      priority: 0.3,
     },
   ];
 }

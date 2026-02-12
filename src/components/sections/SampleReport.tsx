@@ -244,7 +244,7 @@ export function SampleReport() {
                     <FileText className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-white text-lg">Biomarker Analysis</h4>
+                    <h3 className="font-semibold text-white text-lg">Biomarker Analysis</h3>
                     <p className="text-sm text-white/80">Sample from your 80+ page report</p>
                   </div>
                 </div>

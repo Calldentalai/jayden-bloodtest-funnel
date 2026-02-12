@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import {
   Accordion,
   AccordionContent,
@@ -8,6 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { SITE_CONFIG } from "@/lib/config";
+import { useInView } from "@/lib/hooks/useInView";
 
 const faqs = [
   {
@@ -53,15 +53,14 @@ const faqs = [
 ];
 
 export function FAQ() {
+  const { ref, isInView } = useInView();
+
   return (
     <section id="faq" className="py-12 sm:py-20 lg:py-28 bg-background scroll-mt-16">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div ref={ref} className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-8 sm:mb-16"
+        <div
+          className={`text-center mb-8 sm:mb-16 ${isInView ? "animate-fade-in-up" : "opacity-0"}`}
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4">
             Frequently Asked <span className="text-primary">Questions</span>
@@ -69,14 +68,11 @@ export function FAQ() {
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
             Everything you need to know about our comprehensive blood testing
           </p>
-        </motion.div>
+        </div>
 
         {/* FAQ Accordion */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-3xl mx-auto"
+        <div
+          className={`max-w-3xl mx-auto ${isInView ? "animate-fade-in-up delay-200" : "opacity-0"}`}
         >
           <Accordion type="single" collapsible className="w-full">
             {faqs.map((faq, index) => (
@@ -90,15 +86,11 @@ export function FAQ() {
               </AccordionItem>
             ))}
           </Accordion>
-        </motion.div>
+        </div>
 
         {/* Still have questions */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-          className="text-center mt-12"
+        <div
+          className={`text-center mt-12 ${isInView ? "animate-fade-in delay-400" : "opacity-0"}`}
         >
           <p className="text-muted-foreground">
             Still have questions?{" "}
@@ -109,7 +101,7 @@ export function FAQ() {
               Contact us
             </a>
           </p>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

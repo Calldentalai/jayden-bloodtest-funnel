@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Award, GraduationCap, Users, Globe, Heart } from "lucide-react";
 import Image from "next/image";
+import { useInView } from "@/lib/hooks/useInView";
 
 const credentials = [
   {
@@ -27,68 +27,23 @@ const credentials = [
   },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.2,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: "spring" as const,
-      stiffness: 100,
-      damping: 12,
-    },
-  },
-};
-
 export function AboutSection() {
+  const { ref, isInView } = useInView();
+
   return (
     <section id="about" className="py-12 sm:py-20 lg:py-28 bg-card scroll-mt-16 overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div ref={ref} className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center max-w-6xl mx-auto">
           {/* Image Column */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-            className="relative"
+          <div
+            className={`relative ${isInView ? "animate-fade-in-up" : "opacity-0"}`}
           >
-            {/* Floating decorative elements */}
-            <motion.div
-              animate={{
-                y: [0, -10, 0],
-                rotate: [0, 5, 0],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="absolute -top-6 -left-6 w-20 h-20 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl -z-10 hidden sm:block"
+            {/* Floating decorative elements (CSS animations for performance) */}
+            <div
+              className="absolute -top-6 -left-6 w-20 h-20 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl -z-10 hidden sm:block animate-float-slow"
             />
-            <motion.div
-              animate={{
-                y: [0, 10, 0],
-                rotate: [0, -5, 0],
-              }}
-              transition={{
-                duration: 5,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 0.5,
-              }}
-              className="absolute -bottom-6 -right-6 w-24 h-24 bg-gradient-to-br from-accent/20 to-accent/5 rounded-2xl -z-10 hidden sm:block"
+            <div
+              className="absolute -bottom-6 -right-6 w-24 h-24 bg-gradient-to-br from-accent/20 to-accent/5 rounded-2xl -z-10 hidden sm:block animate-float-slow-reverse"
             />
 
             {/* Main image container */}
@@ -96,21 +51,17 @@ export function AboutSection() {
               <div className="aspect-[4/5] relative rounded-2xl overflow-hidden bg-muted shadow-2xl">
                 <Image
                   src="/images/jayden-about.jpg"
-                  alt="Jayden Pileggi on rowing machine - Functional Medicine Practitioner"
+                  alt="Jayden Pileggi performing functional fitness on rowing machine - Perth-based Certified Functional Medicine Practitioner with 2500+ comprehensive blood tests analyzed"
                   fill
                   className="object-cover object-center"
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  quality={95}
+                  quality={85}
                 />
               </div>
 
               {/* Experience badge */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5, type: "spring", stiffness: 200 }}
-                className="absolute -bottom-4 -right-4 sm:bottom-6 sm:-right-6"
+              <div
+                className={`absolute -bottom-4 -right-4 sm:bottom-6 sm:-right-6 ${isInView ? "animate-fade-in delay-500" : "opacity-0"}`}
               >
                 <div className="bg-card border border-border/50 rounded-xl p-3 sm:p-4 shadow-xl">
                   <div className="flex items-center gap-2 sm:gap-3">
@@ -123,42 +74,29 @@ export function AboutSection() {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Content Column */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
+          <div className={`${isInView ? "animate-fade-in-up delay-200" : "opacity-0"}`}>
             {/* Section badge */}
-            <motion.div variants={itemVariants}>
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-                <Users className="w-4 h-4" />
-                About Jayden
-              </span>
-            </motion.div>
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+              <Users className="w-4 h-4" />
+              About Jayden
+            </span>
 
             {/* Heading */}
-            <motion.h2
-              variants={itemVariants}
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4"
-            >
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4">
               Meet <span className="text-primary">Jayden Pileggi</span>
-            </motion.h2>
+            </h2>
 
-            <motion.p
-              variants={itemVariants}
-              className="text-base sm:text-lg text-muted-foreground mb-4 sm:mb-6"
-            >
+            <p className="text-base sm:text-lg text-muted-foreground mb-4 sm:mb-6">
               Certified Functional Medicine Practitioner
-            </motion.p>
+            </p>
 
-            {/* Story paragraphs with staggered animation */}
-            <motion.div variants={itemVariants} className="space-y-3 sm:space-y-4 text-sm sm:text-base text-muted-foreground mb-6 sm:mb-8">
+            {/* Story paragraphs */}
+            <div className="space-y-3 sm:space-y-4 text-sm sm:text-base text-muted-foreground mb-6 sm:mb-8">
               <p>
                 After years of seeing patients fall through the cracks of conventional
                 medicine — told they were &quot;fine&quot; when they clearly weren&apos;t — Jayden
@@ -174,31 +112,25 @@ export function AboutSection() {
                 Jayden has helped thousands of clients around the world take control
                 of their health and optimize their wellbeing.
               </p>
-            </motion.div>
+            </div>
 
-            {/* Credentials with enhanced animations */}
-            <motion.div variants={itemVariants} className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+            {/* Credentials */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               {credentials.map((cred, index) => (
-                <motion.div
+                <div
                   key={index}
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.4 + 0.1 * index, type: "spring", stiffness: 100 }}
-                  whileHover={{ x: 5, scale: 1.02 }}
-                  className="flex items-center gap-3 p-2 sm:p-3 rounded-xl bg-muted/50 hover:bg-muted transition-colors cursor-default group"
+                  className={`flex items-center gap-3 p-2 sm:p-3 rounded-xl bg-muted/50 hover:bg-muted hover:translate-x-1 hover:scale-[1.02] transition-all cursor-default group ${isInView ? `animate-fade-in delay-${Math.min((index + 3) * 100, 500)}` : "opacity-0"}`}
                 >
-                  <motion.div
-                    whileHover={{ rotate: 10, scale: 1.1 }}
-                    className={`w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-br ${cred.color} flex items-center justify-center flex-shrink-0 shadow-md`}
+                  <div
+                    className={`w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-br ${cred.color} flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 group-hover:rotate-[10deg] transition-transform`}
                   >
                     <cred.icon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-                  </motion.div>
+                  </div>
                   <span className="text-xs sm:text-sm text-foreground font-medium">{cred.text}</span>
-                </motion.div>
+                </div>
               ))}
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

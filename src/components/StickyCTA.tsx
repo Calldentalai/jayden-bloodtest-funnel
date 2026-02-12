@@ -1,22 +1,24 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { scrollToProducts } from "@/lib/utils/scroll";
+import { throttle } from "@/lib/utils/throttle";
 
 export function StickyCTA() {
   const [isVisible, setIsVisible] = useState(false);
 
+  const handleScroll = useMemo(
+    () => throttle(() => setIsVisible(window.scrollY > 600), 100),
+    []
+  );
+
   useEffect(() => {
-    const handleScroll = () => {
-      // Show after scrolling past the hero section (roughly 600px)
-      setIsVisible(window.scrollY > 600);
-    };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [handleScroll]);
 
   return (
     <AnimatePresence>

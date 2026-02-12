@@ -9,34 +9,73 @@ import "./globals.css";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Comprehensive Blood Test | Jayden Pileggi Functional Medicine",
+  metadataBase: new URL("https://jayden-bloodtest-funnel.vercel.app"),
+  title: "Comprehensive Blood Test | 100+ Biomarkers | Jayden Pileggi Functional Medicine",
   description:
-    "Get a comprehensive blood test with 100+ biomarkers analyzed. Delivered to your home, analyzed by a Certified Functional Medicine Practitioner. Available in USA, UK, Australia & NZ.",
+    "Get a comprehensive blood test with 100+ biomarkers analyzed using optimal functional ranges. Personal consultation with a Certified Functional Medicine Practitioner. Available in USA, UK, Australia & NZ.",
   keywords: [
-    "blood test",
+    "comprehensive blood test",
     "functional medicine",
     "biomarkers",
     "health optimization",
     "blood analysis",
     "preventative health",
+    "thyroid testing",
+    "hormone testing",
+    "vitamin deficiency test",
+    "optimal blood ranges",
   ],
-  authors: [{ name: "Jayden Pileggi" }],
+  authors: [
+    {
+      name: "Jayden Pileggi",
+      url: "https://www.jaydenpileggifunctionalmedicine.com/",
+    },
+  ],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Comprehensive Blood Test | Jayden Pileggi Functional Medicine",
     description:
-      "100+ biomarkers analyzed. Optimal ranges, not just normal. Your personalized health blueprint.",
+      "100+ biomarkers analyzed. Optimal ranges, not just normal. Personal consultation included. Your personalized health blueprint.",
     type: "website",
     locale: "en_US",
     siteName: "Jayden Pileggi Functional Medicine",
+    url: "https://jayden-bloodtest-funnel.vercel.app",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Comprehensive Blood Test - 100+ Biomarkers Analyzed by Certified Functional Medicine Practitioner Jayden Pileggi",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Comprehensive Blood Test | Jayden Pileggi Functional Medicine",
     description:
-      "100+ biomarkers analyzed. Optimal ranges, not just normal. Your personalized health blueprint.",
+      "100+ biomarkers analyzed. Optimal ranges, not just normal. Personal consultation included.",
+    images: ["/opengraph-image"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large" as const,
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
 };
 
@@ -48,6 +87,16 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Resource Preconnects & DNS Prefetch */}
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://connect.facebook.net" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://assets.calendly.com" />
+        {/* Preload hero image for LCP optimization */}
+        <link rel="preload" as="image" href="/images/jayden-hero.jpg" type="image/jpeg" />
+
         {/* Meta Pixel Code */}
         {ANALYTICS_CONFIG.metaPixelId && (
           <Script id="meta-pixel" strategy="afterInteractive">
@@ -71,9 +120,9 @@ export default function RootLayout({
           <>
             <Script
               src={`https://www.googletagmanager.com/gtag/js?id=${ANALYTICS_CONFIG.googleAnalyticsId}`}
-              strategy="afterInteractive"
+              strategy="lazyOnload"
             />
-            <Script id="google-analytics" strategy="afterInteractive">
+            <Script id="google-analytics" strategy="lazyOnload">
               {`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}

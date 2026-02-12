@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { AlertCircle, HelpCircle, Clock, TrendingDown } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { useInView } from "@/lib/hooks/useInView";
 
 const painPoints = [
   {
@@ -31,30 +31,15 @@ const painPoints = [
   },
 ];
 
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.15 },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 },
-};
-
 export function ProblemSection() {
+  const { ref, isInView } = useInView();
+
   return (
     <section className="py-20 lg:py-28 bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div ref={ref} className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+        <div
+          className={`text-center mb-16 ${isInView ? "animate-fade-in-up" : "opacity-0"}`}
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
             Does This Sound{" "}
@@ -64,18 +49,17 @@ export function ProblemSection() {
             Most people don't realize their "normal" blood work could be hiding
             the real story about their health
           </p>
-        </motion.div>
+        </div>
 
         {/* Pain Point Cards */}
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
+        <div
           className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto"
         >
           {painPoints.map((point, index) => (
-            <motion.div key={index} variants={item}>
+            <div
+              key={index}
+              className={`${isInView ? `animate-fade-in-up delay-${(index + 1) * 100}` : "opacity-0"}`}
+            >
               <Card className="h-full border-border/50 bg-card hover:border-primary/30 transition-colors duration-300">
                 <CardContent className="p-6 flex gap-4">
                   <div className="flex-shrink-0">
@@ -93,17 +77,13 @@ export function ProblemSection() {
                   </div>
                 </CardContent>
               </Card>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Bottom Statement */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-          className="text-center mt-16"
+        <div
+          className={`text-center mt-16 ${isInView ? "animate-fade-in-up delay-500" : "opacity-0"}`}
         >
           <p className="text-xl sm:text-2xl font-medium text-foreground max-w-3xl mx-auto">
             Standard lab tests compare you to the{" "}
@@ -112,7 +92,7 @@ export function ProblemSection() {
             We compare you to{" "}
             <span className="text-primary">optimal health standards</span>.
           </p>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

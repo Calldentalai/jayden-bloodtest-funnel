@@ -45,13 +45,16 @@ export function Hero() {
               </Badge>
             </motion.div>
 
-            {/* Headline */}
+            {/* Headline - SEO keyword-rich H1 */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
               className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.2]"
             >
+              <span className="block text-base sm:text-lg lg:text-xl text-primary font-semibold mb-2 sm:mb-3">
+                Comprehensive Blood Test — 100+ Biomarkers
+              </span>
               Your Doctor Says{" "}
               <span className="text-primary">You&apos;re Fine.</span>
               <br />
@@ -66,8 +69,8 @@ export function Hero() {
               transition={{ delay: 0.4 }}
               className="text-sm sm:text-lg lg:text-xl text-muted-foreground max-w-xl leading-relaxed"
             >
-              Comprehensive Blood Testing with 100+ Biomarkers — Analyzed
-              by a Certified Practitioner
+              Analyzed by a Certified Functional Medicine Practitioner.
+              Optimal ranges, not just &quot;normal.&quot; Personal consultation included.
             </motion.p>
 
             {/* Trust Points - simplified on mobile */}
@@ -136,6 +139,27 @@ export function Hero() {
                 ))}
               </div>
             </motion.div>
+
+            {/* Trust Stats */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8 }}
+              className="flex flex-wrap gap-4 sm:gap-6 pt-4"
+            >
+              <div className="flex items-center gap-2">
+                <span className="text-lg sm:text-xl font-bold text-primary">2,500+</span>
+                <span className="text-xs text-muted-foreground">Tests Delivered</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-lg sm:text-xl font-bold text-primary">4.9/5</span>
+                <span className="text-xs text-muted-foreground">Client Rating</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-lg sm:text-xl font-bold text-primary">15+</span>
+                <span className="text-xs text-muted-foreground">Countries</span>
+              </div>
+            </motion.div>
           </motion.div>
 
           {/* Right Column - Image */}
@@ -149,12 +173,12 @@ export function Hero() {
               <div className="relative rounded-xl sm:rounded-2xl overflow-hidden border border-border/50 shadow-xl">
                 <Image
                   src="/images/jayden-hero.jpg"
-                  alt="Jayden Pileggi - Functional Medicine Practitioner"
+                  alt="Jayden Pileggi - Certified Functional Medicine Practitioner specializing in comprehensive blood testing with 100+ biomarkers in Perth, Australia"
                   width={800}
                   height={1200}
                   className="w-full h-auto object-cover"
                   sizes="(max-width: 640px) 200px, (max-width: 1024px) 320px, 400px"
-                  quality={95}
+                  quality={85}
                   priority
                 />
 

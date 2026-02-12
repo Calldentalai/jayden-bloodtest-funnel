@@ -1,10 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Instagram, Mail, Globe, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { scrollToProducts, scrollToDiscoveryCall } from "@/lib/utils/scroll";
 import { SITE_CONFIG } from "@/lib/config";
+import { useInView } from "@/lib/hooks/useInView";
 
 const socialLinks = [
   {
@@ -25,22 +25,21 @@ const socialLinks = [
 ];
 
 const footerLinks = [
-  { label: "Privacy Policy", href: "#" },
-  { label: "Terms of Service", href: "#" },
-  { label: "Refund Policy", href: "#" },
+  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Terms of Service", href: "/terms" },
+  { label: "Refund Policy", href: "/refund" },
 ];
 
 export function Footer() {
+  const { ref, isInView } = useInView();
+
   return (
     <footer className="bg-card border-t border-border/50 pb-24 md:pb-0">
       {/* Final CTA Section - More compact */}
       <div className="py-12 lg:py-16 bg-gradient-to-b from-primary/5 to-transparent">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center max-w-xl mx-auto"
+        <div ref={ref} className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            className={`text-center max-w-xl mx-auto ${isInView ? "animate-fade-in-up" : "opacity-0"}`}
           >
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-foreground mb-3">
               Ready to Get Real Answers?
@@ -49,28 +48,24 @@ export function Footer() {
               Take the first step toward understanding your body.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                <Button
-                  size="default"
-                  onClick={scrollToProducts}
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-6"
-                >
-                  Order Your Test
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </Button>
-              </motion.div>
-              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                <Button
-                  size="default"
-                  variant="outline"
-                  onClick={scrollToDiscoveryCall}
-                  className="border-primary/30 text-foreground hover:bg-primary/5"
-                >
-                  Book Discovery Call
-                </Button>
-              </motion.div>
+              <Button
+                size="default"
+                onClick={scrollToProducts}
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 hover:scale-[1.02] active:scale-[0.98] transition-all"
+              >
+                Order Your Test
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+              <Button
+                size="default"
+                variant="outline"
+                onClick={scrollToDiscoveryCall}
+                className="border-primary/30 text-foreground hover:bg-primary/5 hover:scale-[1.02] active:scale-[0.98] transition-all"
+              >
+                Book Discovery Call
+              </Button>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
 
@@ -89,18 +84,16 @@ export function Footer() {
             {/* Center - Social Links */}
             <div className="flex gap-3">
               {socialLinks.map((social, index) => (
-                <motion.a
+                <a
                   key={index}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-9 h-9 rounded-full bg-muted flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-colors"
+                  className="w-9 h-9 rounded-full bg-muted flex items-center justify-center hover:bg-primary/10 hover:text-primary hover:scale-110 active:scale-95 transition-all"
                   aria-label={social.label}
                 >
                   <social.icon className="w-4 h-4" />
-                </motion.a>
+                </a>
               ))}
             </div>
 
@@ -123,6 +116,10 @@ export function Footer() {
             <p className="text-xs text-muted-foreground">
               © {new Date().getFullYear()} Jayden Pileggi Functional Medicine. All rights reserved.
               <span className="hidden sm:inline"> • This site is not endorsed by Facebook/Meta.</span>
+            </p>
+            <p className="text-[10px] text-muted-foreground/60 mt-2 max-w-2xl mx-auto">
+              Disclaimer: The information provided through this service is for educational purposes and is not intended to replace professional medical advice.
+              Always consult with a qualified healthcare provider before making health decisions.
             </p>
           </div>
         </div>

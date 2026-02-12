@@ -8,7 +8,7 @@
 export const SITE_CONFIG = {
   // Site Information
   siteName: "Jayden Pileggi Functional Medicine",
-  siteUrl: "https://bloodtest.jaydenpileggifunctionalmedicine.com", // Update with actual domain
+  siteUrl: "https://jayden-bloodtest-funnel.vercel.app", // Update with actual domain when custom domain is ready
 
   // Contact Information
   email: "info@jaydenpileggifunctionalmedicine.com",

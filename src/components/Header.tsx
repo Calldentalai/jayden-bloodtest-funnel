@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { scrollToProducts, scrollToSection } from "@/lib/utils/scroll";
+import { throttle } from "@/lib/utils/throttle";
 
 const navLinks = [
   { label: "How It Works", href: "#how-it-works" },
@@ -17,13 +18,15 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  const handleScroll = useMemo(
+    () => throttle(() => setIsScrolled(window.scrollY > 20), 100),
+    []
+  );
+
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [handleScroll]);
 
   return (
     <header
@@ -39,6 +42,7 @@ export function Header() {
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="flex items-center gap-2 cursor-pointer"
+            aria-label="Return to top"
           >
             <span className="font-bold text-lg text-foreground">
               Jayden Pileggi
@@ -75,6 +79,8 @@ export function Header() {
               variant="ghost"
               size="icon"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-expanded={isMobileMenuOpen}
+              aria-label="Toggle navigation menu"
             >
               {isMobileMenuOpen ? (
                 <X className="h-5 w-5" />

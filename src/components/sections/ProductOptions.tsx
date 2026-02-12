@@ -1,10 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Check, ArrowRight, Shield } from "lucide-react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { PRODUCT_CONFIG } from "@/lib/config";
+import { useInView } from "@/lib/hooks/useInView";
 
 const commonFeatures = [
   "100+ biomarkers analyzed",
@@ -40,15 +40,14 @@ const products = [
 ];
 
 export function ProductOptions() {
+  const { ref, isInView } = useInView();
+
   return (
     <section id="products" className="py-12 sm:py-20 lg:py-28 bg-card scroll-mt-16">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div ref={ref} className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-8 sm:mb-16"
+        <div
+          className={`text-center mb-8 sm:mb-16 ${isInView ? "animate-fade-in-up" : "opacity-0"}`}
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4">
             Choose Your <span className="text-primary">Test</span>
@@ -56,20 +55,16 @@ export function ProductOptions() {
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
             Select the comprehensive blood test designed specifically for your biology
           </p>
-        </motion.div>
+        </div>
 
         {/* Product Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 max-w-5xl mx-auto">
           {products.map((product, index) => (
-            <motion.div
+            <div
               key={product.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 * index }}
-              whileHover={{ y: -8 }}
+              className={`${isInView ? `animate-fade-in-up delay-${(index + 1) * 100}` : "opacity-0"}`}
             >
-              <Card className="h-full border-2 border-border/50 hover:border-primary/50 hover:shadow-xl transition-all duration-300">
+              <Card className="h-full border-2 border-border/50 hover:border-primary/50 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                 <CardHeader className="pb-4">
                   <div className="mb-2">
                     <span className="text-xs uppercase tracking-wider text-primary font-semibold">
@@ -118,36 +113,34 @@ export function ProductOptions() {
                   </div>
 
                   {/* CTA Button */}
-                  <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                    <Button
-                      size="lg"
-                      className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-shadow"
-                      asChild
-                    >
-                      <a href={product.ctaLink}>
-                        {product.ctaText}
-                        <ArrowRight className="ml-2 w-5 h-5" />
-                      </a>
-                    </Button>
-                  </motion.div>
+                  <Button
+                    size="lg"
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all hover:scale-[1.02] active:scale-[0.98]"
+                    asChild
+                  >
+                    <a href={product.ctaLink}>
+                      {product.ctaText}
+                      <ArrowRight className="ml-2 w-5 h-5" />
+                    </a>
+                  </Button>
                 </CardContent>
               </Card>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Note */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-          className="text-center text-sm text-muted-foreground mt-8"
+        <p
+          className={`text-center text-sm text-muted-foreground mt-8 ${isInView ? "animate-fade-in delay-400" : "opacity-0"}`}
         >
           Both tests include all core biomarkers plus gender-specific panels.
           <br />
           Results delivered in 3-4 weeks with personal consultation included.
-        </motion.p>
+          <br />
+          <span className="text-xs mt-2 block text-muted-foreground/80">
+            Comparable to $500-$800+ when tested through standard laboratory channels.
+          </span>
+        </p>
       </div>
     </section>
   );
