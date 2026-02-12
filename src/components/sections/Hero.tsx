@@ -9,7 +9,7 @@ import { scrollToProducts, scrollToDiscoveryCall } from "@/lib/utils/scroll";
 
 const trustPoints = [
   "100+ Biomarkers Analyzed",
-  "Home Test Kit Delivery",
+  "Test Kit Delivery",
   "Personal Consultation Included",
 ];
 
@@ -66,8 +66,8 @@ export function Hero() {
               transition={{ delay: 0.4 }}
               className="text-sm sm:text-lg lg:text-xl text-muted-foreground max-w-xl leading-relaxed"
             >
-              Comprehensive Blood Testing with 100+ Biomarkers — Delivered to
-              Your Home, Analyzed by a Certified Practitioner
+              Comprehensive Blood Testing with 100+ Biomarkers — Analyzed
+              by a Certified Practitioner
             </motion.p>
 
             {/* Trust Points - simplified on mobile */}
@@ -175,7 +175,7 @@ export function Hero() {
                           Certified Practitioner
                         </p>
                         <p className="text-[10px] sm:text-xs text-muted-foreground hidden sm:block">
-                          Functional Medicine Institute
+                          The Institute of Functional Medicine
                         </p>
                       </div>
                     </div>

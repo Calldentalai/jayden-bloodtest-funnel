@@ -15,14 +15,14 @@ const steps = [
   {
     icon: Package,
     step: "02",
-    title: "Receive at Home",
-    description: "Your test kit is delivered directly to your door within days.",
+    title: "Receive Confirmation",
+    description: "You'll receive a confirmation email with instructions based on your location.",
   },
   {
     icon: Building2,
     step: "03",
-    title: "Visit a Lab",
-    description: "Take your kit to a local partner lab for a quick blood draw.",
+    title: "Complete Your Blood Draw",
+    description: "Follow your location-specific instructions to complete your blood draw.",
   },
   {
     icon: FileText,

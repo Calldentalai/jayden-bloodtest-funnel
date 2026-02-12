@@ -22,7 +22,7 @@ const credentials = [
   },
   {
     icon: Globe,
-    text: "Based in Perth, serving globally",
+    text: "Serving clients globally",
     color: "from-blue-500 to-cyan-500",
   },
 ];

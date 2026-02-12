@@ -10,7 +10,7 @@ const benefits = [
   "Discuss your health concerns one-on-one",
   "Learn if the blood test is right for you",
   "Get personalized recommendations",
-  "Ask any questions you have",
+  "Have your questions answered",
 ];
 
 export function DiscoveryCall() {
@@ -49,7 +49,7 @@ export function DiscoveryCall() {
                 <div className="absolute bottom-4 left-4 md:hidden">
                   <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-sm text-primary text-sm font-medium shadow-lg">
                     <Phone className="w-4 h-4" />
-                    Not Sure Yet?
+                    Looking for More Guidance?
                   </div>
                 </div>
               </div>
@@ -59,7 +59,7 @@ export function DiscoveryCall() {
                 {/* Desktop badge */}
                 <div className="hidden md:inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
                   <Phone className="w-4 h-4" />
-                  Not Sure Yet?
+                  Looking for More Guidance?
                 </div>
 
                 <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-3">

@@ -68,7 +68,7 @@ export function CertificationBadge({ className = "" }: { className?: string }) {
           Certified Practitioner
         </p>
         <p className="text-xs text-muted-foreground leading-tight">
-          The Institute for
+          The Institute of
           <br />
           Functional Medicine
         </p>

@@ -13,42 +13,42 @@ const faqs = [
   {
     question: "How is this different from a regular blood test?",
     answer:
-      "Standard lab tests typically measure 20-30 biomarkers and use 'normal' ranges based on sick population averages. Our comprehensive test analyzes 100+ biomarkers and compares your results to 'optimal' ranges — what's seen in thriving, healthy individuals. This catches dysfunction before it becomes disease.",
+      "Standard lab tests typically measure 20-30 biomarkers and use 'normal' ranges based on population averages that include unhealthy individuals. Our comprehensive test analyzes 100+ biomarkers and compares your results to optimal ranges — the levels seen in thriving, healthy people. This approach catches early dysfunction before it becomes disease.",
   },
   {
     question: "How does the testing process work?",
     answer:
-      "After ordering, you'll receive a test kit delivered to your home. Take this kit to any of our partner labs near you (we have locations across USA, UK, Australia, and NZ). A quick blood draw takes about 10 minutes. Your samples are then analyzed, and within 3-4 weeks, you'll receive your comprehensive 80+ page report plus a personal consultation with Jayden.",
+      "After ordering, you'll receive a confirmation email with instructions based on your location. Depending on where you are, you may receive a test kit or a pathology form to visit a local lab. A quick blood draw takes about 10 minutes. Your samples are then analyzed, and within 3-4 weeks, you'll receive your comprehensive 80+ page report plus a personal consultation with Jayden.",
   },
   {
     question: "What biomarkers are included in the test?",
     answer:
-      "The test covers 8 major health categories: Cardiovascular Health (cholesterol, lipids, heart risk markers), Blood Sugar & Metabolism, Liver Function, Thyroid & Hormones, Immune System markers, Vitamins & Minerals, Kidney Function, and Inflammation Markers. Plus gender-specific hormone panels.",
+      "The test covers 8 major health categories: Cardiovascular Health (cholesterol, lipids, and heart risk markers), Blood Sugar and Metabolism, Liver Function, Thyroid and Hormones, Immune System markers, Vitamins and Minerals, Kidney Function, and Inflammation Markers — plus gender-specific hormone panels tailored to your biology.",
   },
   {
     question: "Who is this test for?",
     answer:
-      "This test is ideal for anyone who: feels 'off' but has been told their labs are normal, wants to optimize their health proactively, is dealing with unexplained fatigue, brain fog, or weight issues, wants to prevent health problems before they start, or is serious about understanding their body at a deeper level.",
+      "This test is for two types of people: those who feel 'off' but have been told their labs are normal — dealing with unexplained fatigue, brain fog, or weight issues — and those who are already healthy but want to optimize their performance and take their health to the next level. Whether you're looking to fix a problem or fine-tune what's already working, this test gives you the data to make informed decisions about your body.",
   },
   {
     question: "How long does it take to get results?",
     answer:
-      "From the time of your blood draw, expect to receive your comprehensive report within 3-4 weeks. This includes a detailed 80+ page analysis plus scheduling your personal consultation call with Jayden to walk through your results.",
+      "From the time of your blood draw, you can expect your comprehensive report within 3-4 weeks. This includes a detailed 80+ page analysis, and you'll also schedule a personal consultation with Jayden to walk through your results together.",
   },
   {
     question: "What happens during the consultation?",
     answer:
-      "During your 1-on-1 consultation with Jayden, you'll go through your results in detail. He'll explain what each marker means, identify priority areas for improvement, and provide a personalized action plan including dietary recommendations, lifestyle changes, and supplement suggestions based on your unique results.",
+      "During your one-on-one consultation, Jayden walks you through your results in detail. He explains what each marker means, identifies priority areas for improvement, and provides a personalized action plan — including dietary recommendations, lifestyle changes, and supplement suggestions tailored to your unique results.",
   },
   {
     question: "Can I order from outside Australia?",
     answer:
-      "Yes! We serve clients globally with partner labs in the USA, UK, New Zealand, and Australia. When you order, you'll receive information about the nearest participating lab in your area.",
+      "Absolutely! We serve clients globally with partner labs across the USA, UK, New Zealand, and Australia. After ordering, you'll receive location-specific instructions to complete your blood draw at a lab near you.",
   },
   {
     question: "Is there a money-back guarantee?",
     answer:
-      "We stand behind our testing. If you're not satisfied with the thoroughness of your report or consultation, contact us within 30 days and we'll work with you to make it right.",
+      "Yes — we stand behind our testing. If you're not satisfied with the thoroughness of your report or consultation, simply reach out within 30 days and we'll work with you to make it right.",
   },
 ];
 

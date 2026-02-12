@@ -23,7 +23,7 @@ const products = [
     subtitle: "Comprehensive Men's Health Panel",
     description:
       "Includes testosterone, PSA, and male-specific hormone markers alongside the full biomarker panel.",
-    additionalMarkers: ["Free & Total Testosterone", "PSA", "SHBG", "Estradiol"],
+    hormonePanel: "Gender-Specific Comprehensive Hormone Panel",
     ctaText: "Order Male Test",
     ctaLink: PRODUCT_CONFIG.maleTestUrl,
   },
@@ -33,7 +33,7 @@ const products = [
     subtitle: "Comprehensive Women's Health Panel",
     description:
       "Includes estrogen, progesterone, and female-specific hormone markers alongside the full biomarker panel.",
-    additionalMarkers: ["Estrogen Panel", "Progesterone", "FSH & LH", "DHEA-S"],
+    hormonePanel: "Gender-Specific Comprehensive Hormone Panel",
     ctaText: "Order Female Test",
     ctaLink: PRODUCT_CONFIG.femaleTestUrl,
   },
@@ -84,20 +84,13 @@ export function ProductOptions() {
                   </p>
                 </CardHeader>
                 <CardContent className="pt-0">
-                  {/* Gender-specific markers */}
+                  {/* Gender-specific hormone panel */}
                   <div className="mb-6 pb-6 border-b border-border/50">
-                    <p className="text-sm font-semibold text-foreground mb-3">
-                      Gender-Specific Markers:
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {product.additionalMarkers.map((marker, i) => (
-                        <span
-                          key={i}
-                          className="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary"
-                        >
-                          {marker}
-                        </span>
-                      ))}
+                    <div className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                      <span className="text-sm font-medium text-foreground">
+                        {product.hormonePanel}
+                      </span>
                     </div>
                   </div>
 
