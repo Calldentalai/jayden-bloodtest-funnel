@@ -136,10 +136,6 @@ export function ProductOptions() {
           Both tests include all core biomarkers plus gender-specific panels.
           <br />
           Results delivered in 3-4 weeks with personal consultation included.
-          <br />
-          <span className="text-xs mt-2 block text-muted-foreground/80">
-            Comparable to $500-$800+ when tested through standard laboratory channels.
-          </span>
         </p>
       </div>
     </section>

@@ -1,6 +1,3 @@
-"use client";
-
-import Script from "next/script";
 import { SITE_CONFIG } from "@/lib/config";
 
 export function StructuredData() {
@@ -25,6 +22,11 @@ export function StructuredData() {
       "@type": "Person",
       name: "Jayden Pileggi",
       jobTitle: "Certified Functional Medicine Practitioner",
+      url: "https://www.jaydenpileggifunctionalmedicine.com",
+      sameAs: [
+        SITE_CONFIG.social.instagram,
+        SITE_CONFIG.social.linkedin,
+      ],
     },
     sameAs: [
       SITE_CONFIG.social.instagram,
@@ -34,22 +36,23 @@ export function StructuredData() {
     ],
     priceRange: "$$",
     areaServed: [
-      "United States",
-      "United Kingdom",
-      "Australia",
-      "New Zealand",
+      { "@type": "Country", name: "United States" },
+      { "@type": "Country", name: "United Kingdom" },
+      { "@type": "Country", name: "Australia" },
+      { "@type": "Country", name: "New Zealand" },
     ],
   };
 
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "MedicalTest",
-    name: "Comprehensive Blood Test",
+    name: "Comprehensive Blood Test - 100+ Biomarkers",
     description:
-      "In-depth blood analysis with 100+ biomarkers including thyroid, hormones, vitamins, and metabolic markers. Analyzed using optimal functional ranges, not just standard lab ranges.",
+      "In-depth blood analysis with 100+ biomarkers including thyroid, hormones, vitamins, and metabolic markers. Analyzed using optimal functional ranges, not just standard lab ranges. Includes 80+ page report and personal consultation.",
     provider: {
       "@type": "MedicalBusiness",
       name: "Jayden Pileggi Functional Medicine",
+      url: SITE_CONFIG.siteUrl,
     },
     usesDevice: {
       "@type": "MedicalDevice",
@@ -75,7 +78,7 @@ export function StructuredData() {
       },
       offers: {
         "@type": "Offer",
-        url: `${SITE_CONFIG.siteUrl}`,
+        url: `${SITE_CONFIG.siteUrl}/#products`,
         priceCurrency: "USD",
         price: "499.00",
         priceValidUntil: "2026-12-31",
@@ -85,6 +88,12 @@ export function StructuredData() {
           "@type": "Organization",
           name: "Jayden Pileggi Functional Medicine",
         },
+      },
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "4.9",
+        bestRating: "5",
+        reviewCount: "2500",
       },
     },
     {
@@ -100,7 +109,7 @@ export function StructuredData() {
       },
       offers: {
         "@type": "Offer",
-        url: `${SITE_CONFIG.siteUrl}`,
+        url: `${SITE_CONFIG.siteUrl}/#products`,
         priceCurrency: "USD",
         price: "499.00",
         priceValidUntil: "2026-12-31",
@@ -110,6 +119,12 @@ export function StructuredData() {
           "@type": "Organization",
           name: "Jayden Pileggi Functional Medicine",
         },
+      },
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "4.9",
+        bestRating: "5",
+        reviewCount: "2500",
       },
     },
   ];
@@ -225,12 +240,14 @@ export function StructuredData() {
     name: "How to Get Your Comprehensive Blood Test",
     description:
       "Four simple steps to get your comprehensive blood analysis with 100+ biomarkers.",
+    totalTime: "PT10M",
     step: [
       {
         "@type": "HowToStep",
         position: 1,
         name: "Order Your Test Kit",
         text: "Select male or female blood test and complete your order online.",
+        url: `${SITE_CONFIG.siteUrl}/#products`,
       },
       {
         "@type": "HowToStep",
@@ -253,46 +270,52 @@ export function StructuredData() {
     ],
   };
 
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Comprehensive Blood Test | 100+ Biomarkers | Jayden Pileggi Functional Medicine",
+    description:
+      "Get a comprehensive blood test with 100+ biomarkers analyzed using optimal functional ranges. Personal consultation with a Certified Functional Medicine Practitioner.",
+    url: SITE_CONFIG.siteUrl,
+    isPartOf: {
+      "@type": "WebSite",
+      name: "Jayden Pileggi Functional Medicine",
+      url: SITE_CONFIG.siteUrl,
+    },
+    about: {
+      "@type": "MedicalTest",
+      name: "Comprehensive Blood Test",
+    },
+    mainEntity: {
+      "@type": "MedicalBusiness",
+      name: "Jayden Pileggi Functional Medicine",
+    },
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["h1", "h2", ".hero-description"],
+    },
+  };
+
+  const allSchemas = [
+    organizationSchema,
+    serviceSchema,
+    ...productSchemas,
+    faqSchema,
+    howToSchema,
+    aggregateRatingSchema,
+    breadcrumbSchema,
+    webPageSchema,
+  ];
+
   return (
     <>
-      <Script
-        id="organization-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-      />
-      <Script
-        id="service-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
-      />
-      {productSchemas.map((product, index) => (
-        <Script
+      {allSchemas.map((schema, index) => (
+        <script
           key={index}
-          id={`product-schema-${index}`}
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(product) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
       ))}
-      <Script
-        id="faq-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-      <Script
-        id="howto-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
-      />
-      <Script
-        id="aggregate-rating-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(aggregateRatingSchema) }}
-      />
-      <Script
-        id="breadcrumb-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
     </>
   );
 }

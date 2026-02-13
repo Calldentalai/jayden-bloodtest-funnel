@@ -4,6 +4,40 @@ import { Award, GraduationCap, Users, Globe, Heart } from "lucide-react";
 import Image from "next/image";
 import { useInView } from "@/lib/hooks/useInView";
 
+// IFM (Institute for Functional Medicine) spiral rosette logo
+function IFMLogo() {
+  // The IFM logo is a spiral rosette made of teardrop/petal shapes
+  const petals = 12;
+  const colors = [
+    "#1a3a4a", "#1d4d5e", "#1a6b7a", "#2a8a8a",
+    "#3a9a8a", "#4aaa8a", "#5ab89a", "#6ac4a8",
+    "#7acdb5", "#8ad5c2", "#99ddce", "#aae5da",
+  ];
+
+  return (
+    <svg viewBox="0 0 100 100" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(50, 50)">
+        {Array.from({ length: petals }).map((_, i) => {
+          const angle = (i * 360) / petals;
+          return (
+            <ellipse
+              key={i}
+              cx="0"
+              cy="-18"
+              rx="8"
+              ry="18"
+              fill={colors[i]}
+              transform={`rotate(${angle})`}
+              opacity="0.85"
+            />
+          );
+        })}
+        <circle cx="0" cy="0" r="6" fill="#2a8a8a" />
+      </g>
+    </svg>
+  );
+}
+
 const credentials = [
   {
     icon: GraduationCap,
@@ -110,8 +144,37 @@ export function AboutSection() {
               <p>
                 Through comprehensive blood testing and personalized consultations,
                 Jayden has helped thousands of clients around the world take control
-                of their health and optimize their wellbeing.
+                of their health and optimize their wellbeing through his functional medicine
+                business{" "}
+                <a
+                  href="https://www.jaydenpileggifunctionalmedicine.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:text-primary/80 underline underline-offset-2 font-medium transition-colors"
+                >
+                  www.jaydenpileggifunctionalmedicine.com
+                </a>
+                {" "}— another way to access his support and services.
               </p>
+            </div>
+
+            {/* IFM Certification Badge */}
+            <div className="mb-6 sm:mb-8">
+              <div className="inline-flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl bg-muted/50 border border-border/50">
+                <div className="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20">
+                  <IFMLogo />
+                </div>
+                <div>
+                  <p className="font-semibold text-xs sm:text-sm text-foreground leading-tight">
+                    Certified Practitioner
+                  </p>
+                  <p className="text-[10px] sm:text-xs text-muted-foreground leading-tight mt-0.5">
+                    The Institute for
+                    <br />
+                    Functional Medicine&reg;
+                  </p>
+                </div>
+              </div>
             </div>
 
             {/* Credentials */}

@@ -57,7 +57,7 @@ const categories = [
   },
   {
     icon: Pill,
-    title: "Vitamins",
+    title: "Vitamins & Minerals",
     description: "D, B12, iron, folate",
     color: "from-green-500 to-emerald-600",
     bgColor: "bg-green-500/10",

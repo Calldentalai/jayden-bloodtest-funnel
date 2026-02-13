@@ -9,7 +9,7 @@ import { scrollToProducts, scrollToDiscoveryCall } from "@/lib/utils/scroll";
 
 const trustPoints = [
   "100+ Biomarkers Analyzed",
-  "Test Kit Delivery",
+  "Available Worldwide",
   "Personal Consultation Included",
 ];
 
