@@ -108,20 +108,20 @@ const itemVariants = {
 
 export function Biomarkers() {
   return (
-    <section className="py-20 lg:py-28 bg-gradient-to-b from-card via-card to-background overflow-hidden">
+    <section className="snap-section py-8 lg:py-12 bg-gradient-to-b from-card via-card to-background overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-8"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-3"
           >
             <FlaskConical className="w-4 h-4" />
             Comprehensive Testing
@@ -192,7 +192,7 @@ export function Biomarkers() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="mt-10 sm:mt-16 max-w-4xl mx-auto"
+          className="mt-6 sm:mt-8 max-w-4xl mx-auto"
         >
           <div className="rounded-2xl border border-border/50 bg-card p-4 sm:p-8">
             <div className="grid grid-cols-3 gap-2 sm:gap-8">

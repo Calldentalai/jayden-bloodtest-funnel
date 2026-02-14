@@ -36,11 +36,11 @@ export function Testimonials() {
   const { ref, isInView } = useInView();
 
   return (
-    <section className="py-12 sm:py-20 lg:py-28 bg-background">
+    <section className="snap-section py-8 sm:py-10 lg:py-12 bg-background">
       <div ref={ref} className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div
-          className={`text-center mb-8 sm:mb-16 ${isInView ? "animate-fade-in-up" : "opacity-0"}`}
+          className={`text-center mb-6 sm:mb-8 ${isInView ? "animate-fade-in-up" : "opacity-0"}`}
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4">
             Real Results from <span className="text-primary">Real People</span>
@@ -137,7 +137,7 @@ export function Testimonials() {
 
         {/* Trust Stats */}
         <div
-          className={`flex flex-wrap justify-center gap-8 sm:gap-16 mt-16 pt-8 border-t border-border/50 ${isInView ? "animate-fade-in-up delay-500" : "opacity-0"}`}
+          className={`flex flex-wrap justify-center gap-6 sm:gap-12 mt-8 pt-4 border-t border-border/50 ${isInView ? "animate-fade-in-up delay-500" : "opacity-0"}`}
         >
           <div className="text-center">
             <p className="text-4xl font-bold text-primary">4.9/5</p>

@@ -10,11 +10,11 @@ export function VideoSection() {
   const { ref, isInView } = useInView();
 
   return (
-    <section className="py-20 lg:py-28 bg-card">
+    <section className="snap-section py-8 lg:py-12 bg-card">
       <div ref={ref} className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div
-          className={`text-center mb-12 ${isInView ? "animate-fade-in-up" : "opacity-0"}`}
+          className={`text-center mb-6 ${isInView ? "animate-fade-in-up" : "opacity-0"}`}
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
             See How It Works
@@ -53,7 +53,7 @@ export function VideoSection() {
 
         {/* CTA Below Video */}
         <div
-          className={`text-center mt-12 ${isInView ? "animate-fade-in-up delay-400" : "opacity-0"}`}
+          className={`text-center mt-6 ${isInView ? "animate-fade-in-up delay-400" : "opacity-0"}`}
         >
           <p className="text-lg text-foreground font-medium mb-4">
             Ready to Get Started?

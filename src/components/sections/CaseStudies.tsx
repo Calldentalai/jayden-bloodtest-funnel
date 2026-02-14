@@ -145,12 +145,12 @@ export function CaseStudies() {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-background">
+    <section className="snap-section py-8 md:py-12 bg-background">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div
           ref={titleRef}
-          className={`text-center mb-12 md:mb-16 ${
+          className={`text-center mb-6 md:mb-8 ${
             titleInView ? "animate-fade-in-up" : "opacity-0"
           }`}
         >

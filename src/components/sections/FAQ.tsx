@@ -56,7 +56,7 @@ export function FAQ() {
   const { ref, isInView } = useInView();
 
   return (
-    <section id="faq" className="py-12 sm:py-20 lg:py-28 bg-background scroll-mt-16">
+    <section id="faq" className="snap-section py-8 sm:py-10 lg:py-12 bg-background scroll-mt-16">
       <div ref={ref} className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div

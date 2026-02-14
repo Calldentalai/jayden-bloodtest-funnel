@@ -34,7 +34,7 @@ export function Footer() {
   const { ref, isInView } = useInView();
 
   return (
-    <footer className="bg-card border-t border-border/50 pb-24 md:pb-0">
+    <footer className="bg-card border-t border-border/50 pb-24 md:pb-0" style={{ scrollSnapAlign: "start" }}>
       {/* Final CTA Section - More compact */}
       <div className="py-12 lg:py-16 bg-gradient-to-b from-primary/5 to-transparent">
         <div ref={ref} className="container mx-auto px-4 sm:px-6 lg:px-8">

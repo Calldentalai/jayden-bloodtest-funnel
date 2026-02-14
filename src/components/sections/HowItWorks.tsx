@@ -74,7 +74,7 @@ const lineVariants = {
 
 export function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-20 lg:py-28 bg-background scroll-mt-16">
+    <section id="how-it-works" className="snap-section py-8 lg:py-12 bg-background scroll-mt-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -82,14 +82,14 @@ export function HowItWorks() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="text-center mb-16"
+          className="text-center mb-8"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-3"
           >
             <ArrowRight className="w-4 h-4" />
             Simple Process
@@ -169,7 +169,7 @@ export function HowItWorks() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6, duration: 0.5 }}
-          className="text-center mt-12 sm:mt-16"
+          className="text-center mt-6 sm:mt-8"
         >
           <motion.div
             whileHover={{ scale: 1.02 }}

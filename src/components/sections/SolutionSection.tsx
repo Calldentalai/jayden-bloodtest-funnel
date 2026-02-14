@@ -41,7 +41,7 @@ const rowVariants = {
 
 export function SolutionSection() {
   return (
-    <section className="py-20 lg:py-28 bg-card">
+    <section className="snap-section py-8 lg:py-12 bg-card">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -49,7 +49,7 @@ export function SolutionSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="text-center mb-12 sm:mb-16"
+          className="text-center mb-6 sm:mb-8"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
             Test, <span className="text-primary">Don&apos;t Guess.</span>

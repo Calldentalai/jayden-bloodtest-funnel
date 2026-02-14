@@ -42,18 +42,18 @@ const countries = ["USA", "UK", "Australia", "New Zealand"];
 
 export function Hero() {
   return (
-    <section className="relative min-h-[100svh] lg:min-h-[90vh] flex items-center overflow-hidden pt-20 lg:pt-0">
+    <section className="snap-section relative h-[100svh] flex items-center overflow-hidden pt-16 lg:pt-0">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5" />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-12 lg:py-32 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16 items-center">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-4 lg:py-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-12 items-center">
           {/* Left Column - Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="flex flex-col gap-4 sm:gap-6"
+            className="flex flex-col gap-2 sm:gap-3 lg:gap-4"
           >
             {/* Badge - hidden on very small screens */}
             <motion.div
@@ -124,7 +124,7 @@ export function Hero() {
                 <Button
                   size="lg"
                   onClick={scrollToProducts}
-                  className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-base font-semibold shadow-lg"
+                  className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold shadow-lg"
                 >
                   Get Your Blood Test
                   <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
@@ -135,7 +135,7 @@ export function Hero() {
                   size="lg"
                   variant="outline"
                   onClick={scrollToDiscoveryCall}
-                  className="w-full sm:w-auto border-primary/30 hover:bg-primary/5 px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-base"
+                  className="w-full sm:w-auto border-primary/30 hover:bg-primary/5 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base"
                 >
                   <Phone className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
                   Book Discovery Call
@@ -148,7 +148,7 @@ export function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7 }}
-              className="hidden sm:block pt-6 border-t border-border/50"
+              className="hidden lg:block pt-3 border-t border-border/50"
             >
               <p className="text-sm text-muted-foreground mb-3">
                 Available worldwide:
@@ -170,7 +170,7 @@ export function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8 }}
-              className="flex flex-wrap gap-4 sm:gap-6 pt-4"
+              className="flex flex-wrap gap-3 sm:gap-5 pt-2"
             >
               <div className="flex items-center gap-2">
                 <span className="text-lg sm:text-xl font-bold text-primary">2,500+</span>
@@ -194,7 +194,7 @@ export function Hero() {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="relative flex justify-center order-first lg:order-last"
           >
-            <div className="relative w-full max-w-[200px] sm:max-w-xs lg:max-w-md">
+            <div className="relative w-full max-w-[160px] sm:max-w-[240px] lg:max-w-sm">
               <div className="relative rounded-xl sm:rounded-2xl overflow-hidden border border-border/50 shadow-xl">
                 <Image
                   src="/images/jayden-hero.jpg"

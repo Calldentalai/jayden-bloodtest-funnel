@@ -23,7 +23,7 @@ export function DiscoveryCall() {
   };
 
   return (
-    <section id="discovery-call" className="py-16 lg:py-20 bg-primary/5 scroll-mt-16">
+    <section id="discovery-call" className="snap-section py-8 lg:py-12 bg-primary/5 scroll-mt-16">
       <div ref={ref} className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div
           className={`max-w-5xl mx-auto ${isInView ? "animate-fade-in-up" : "opacity-0"}`}

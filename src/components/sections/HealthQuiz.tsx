@@ -143,7 +143,7 @@ export function HealthQuiz() {
   return (
     <section
       id="health-quiz"
-      className="bg-card py-12 sm:py-20 lg:py-28 scroll-mt-16"
+      className="snap-section bg-card py-8 sm:py-10 lg:py-12 scroll-mt-16"
       ref={ref}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">

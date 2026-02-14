@@ -201,20 +201,20 @@ function BiomarkerBar({ marker, index }: { marker: typeof sampleMarkers[0], inde
 
 export function SampleReport() {
   return (
-    <section className="py-20 lg:py-28 bg-gradient-to-b from-background via-background to-muted/30">
+    <section className="snap-section py-8 lg:py-12 bg-gradient-to-b from-background via-background to-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-8"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-3"
           >
             <Activity className="w-4 h-4" />
             Sample Report Preview

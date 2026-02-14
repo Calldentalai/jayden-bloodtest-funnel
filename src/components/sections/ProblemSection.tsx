@@ -61,7 +61,7 @@ const cardVariants = {
 
 export function ProblemSection() {
   return (
-    <section className="py-20 lg:py-28 bg-background">
+    <section className="snap-section py-8 lg:py-12 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -69,7 +69,7 @@ export function ProblemSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="text-center mb-16"
+          className="text-center mb-8"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -145,7 +145,7 @@ export function ProblemSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4, duration: 0.6 }}
-          className="text-center mt-12 sm:mt-16"
+          className="text-center mt-6 sm:mt-8"
         >
           <div className="inline-block p-6 sm:p-8 rounded-2xl bg-card border border-border/50">
             <p className="text-lg sm:text-xl md:text-2xl font-medium text-foreground max-w-3xl mx-auto">

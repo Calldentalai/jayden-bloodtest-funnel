@@ -4,40 +4,6 @@ import { Award, GraduationCap, Users, Globe, Heart } from "lucide-react";
 import Image from "next/image";
 import { useInView } from "@/lib/hooks/useInView";
 
-// IFM (Institute for Functional Medicine) spiral rosette logo
-function IFMLogo() {
-  // The IFM logo is a spiral rosette made of teardrop/petal shapes
-  const petals = 12;
-  const colors = [
-    "#1a3a4a", "#1d4d5e", "#1a6b7a", "#2a8a8a",
-    "#3a9a8a", "#4aaa8a", "#5ab89a", "#6ac4a8",
-    "#7acdb5", "#8ad5c2", "#99ddce", "#aae5da",
-  ];
-
-  return (
-    <svg viewBox="0 0 100 100" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-      <g transform="translate(50, 50)">
-        {Array.from({ length: petals }).map((_, i) => {
-          const angle = (i * 360) / petals;
-          return (
-            <ellipse
-              key={i}
-              cx="0"
-              cy="-18"
-              rx="8"
-              ry="18"
-              fill={colors[i]}
-              transform={`rotate(${angle})`}
-              opacity="0.85"
-            />
-          );
-        })}
-        <circle cx="0" cy="0" r="6" fill="#2a8a8a" />
-      </g>
-    </svg>
-  );
-}
-
 const credentials = [
   {
     icon: GraduationCap,
@@ -65,7 +31,7 @@ export function AboutSection() {
   const { ref, isInView } = useInView();
 
   return (
-    <section id="about" className="py-12 sm:py-20 lg:py-28 bg-card scroll-mt-16 overflow-hidden">
+    <section id="about" className="snap-section py-8 sm:py-10 lg:py-12 bg-card scroll-mt-16 overflow-hidden">
       <div ref={ref} className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center max-w-6xl mx-auto">
           {/* Image Column */}
@@ -130,7 +96,7 @@ export function AboutSection() {
             </p>
 
             {/* Story paragraphs */}
-            <div className="space-y-3 sm:space-y-4 text-sm sm:text-base text-muted-foreground mb-6 sm:mb-8">
+            <div className="space-y-2 sm:space-y-3 text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6">
               <p>
                 After years of seeing patients fall through the cracks of conventional
                 medicine — told they were &quot;fine&quot; when they clearly weren&apos;t — Jayden
@@ -156,25 +122,6 @@ export function AboutSection() {
                 </a>
                 {" "}— another way to access his support and services.
               </p>
-            </div>
-
-            {/* IFM Certification Badge */}
-            <div className="mb-6 sm:mb-8">
-              <div className="inline-flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl bg-muted/50 border border-border/50">
-                <div className="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20">
-                  <IFMLogo />
-                </div>
-                <div>
-                  <p className="font-semibold text-xs sm:text-sm text-foreground leading-tight">
-                    Certified Practitioner
-                  </p>
-                  <p className="text-[10px] sm:text-xs text-muted-foreground leading-tight mt-0.5">
-                    The Institute for
-                    <br />
-                    Functional Medicine&reg;
-                  </p>
-                </div>
-              </div>
             </div>
 
             {/* Credentials */}
