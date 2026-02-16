@@ -41,7 +41,7 @@ export const VIDEO_CONFIG = {
 export const CALENDLY_CONFIG = {
   // Calendly URL for PAID discovery calls
   // Format: https://calendly.com/username/event-type
-  url: "", // e.g., "https://calendly.com/jaydenpileggi/discovery-call"
+  url: "https://calendly.com/jayden-jaydenpileggifunctionalmedicine/blood-about-discovery-call",
 };
 
 export const PRODUCT_CONFIG = {

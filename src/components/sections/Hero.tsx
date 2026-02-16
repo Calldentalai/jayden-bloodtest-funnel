@@ -42,7 +42,7 @@ const countries = ["USA", "UK", "Australia", "New Zealand"];
 
 export function Hero() {
   return (
-    <section className="snap-section relative h-[100svh] flex items-center overflow-hidden pt-16 lg:pt-0">
+    <section className="snap-section relative min-h-[100svh] flex items-center overflow-hidden pt-20">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5" />
 

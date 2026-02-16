@@ -12,7 +12,7 @@ const credentials = [
   },
   {
     icon: Award,
-    text: "Functional Diagnostic Nutrition Practitioner",
+    text: "Certified FDN Practitioner",
     color: "from-amber-500 to-orange-500",
   },
   {
