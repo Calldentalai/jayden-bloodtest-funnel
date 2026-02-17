@@ -21,7 +21,8 @@ export function Hero() {
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5" />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-4 lg:py-8 relative z-10">
+
+<div className="container mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-4 lg:py-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-12 items-center">
           {/* Left Column - Content */}
           <motion.div
@@ -187,19 +188,17 @@ export function Hero() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.8 }}
-                  className="absolute bottom-2 left-2 sm:bottom-3 sm:left-3"
+                  className="absolute bottom-2 left-2 sm:bottom-3 sm:left-3 w-20 sm:w-28 lg:w-32"
                 >
-                  <div className="bg-white rounded-md sm:rounded-lg overflow-hidden border border-border/50 shadow-lg w-20 sm:w-28 lg:w-32">
-                    <Image
-                      src="/images/ifm-certified-practitioner.png"
-                      alt="The Institute for Functional Medicine - Certified Practitioner"
-                      width={200}
-                      height={100}
-                      className="w-full h-auto"
-                      sizes="(max-width: 640px) 80px, (max-width: 1024px) 112px, 128px"
-                      quality={90}
-                    />
-                  </div>
+                  <Image
+                    src="/images/ifm-certified-practitioner-transparent.png"
+                    alt="The Institute for Functional Medicine - Certified Practitioner"
+                    width={200}
+                    height={100}
+                    className="w-full h-auto brightness-125 contrast-125 drop-shadow-[0_0_6px_rgba(255,255,255,0.6)]"
+                    sizes="(max-width: 640px) 80px, (max-width: 1024px) 112px, 128px"
+                    quality={90}
+                  />
                 </motion.div>
               </div>
             </div>
