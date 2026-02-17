@@ -191,7 +191,7 @@ export function Hero() {
                 >
                   <div className="bg-white rounded-md sm:rounded-lg overflow-hidden border border-border/50 shadow-lg w-20 sm:w-28 lg:w-32">
                     <Image
-                      src="/images/ifm-certified-practitioner.jpg"
+                      src="/images/ifm-certified-practitioner.png"
                       alt="The Institute for Functional Medicine - Certified Practitioner"
                       width={200}
                       height={100}

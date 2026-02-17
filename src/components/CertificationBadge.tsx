@@ -7,7 +7,7 @@ export function CertificationBadge({ className = "" }: { className?: string }) {
   return (
     <div className={`inline-block overflow-hidden rounded-lg ${className}`}>
       <Image
-        src="/images/ifm-certified-practitioner.jpg"
+        src="/images/ifm-certified-practitioner.png"
         alt="The Institute for Functional Medicine - Certified Practitioner"
         width={400}
         height={200}
@@ -27,7 +27,7 @@ export function CertificationBadgeCompact({
   return (
     <div className={`inline-block overflow-hidden rounded-md ${className}`}>
       <Image
-        src="/images/ifm-certified-practitioner.jpg"
+        src="/images/ifm-certified-practitioner.png"
         alt="The Institute for Functional Medicine - Certified Practitioner"
         width={200}
         height={100}
