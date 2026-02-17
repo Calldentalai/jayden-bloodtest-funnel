@@ -2,8 +2,8 @@
 
 import { Instagram, Mail, Globe, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { scrollToProducts, scrollToDiscoveryCall } from "@/lib/utils/scroll";
-import { SITE_CONFIG } from "@/lib/config";
+import { scrollToProducts } from "@/lib/utils/scroll";
+import { SITE_CONFIG, CALENDLY_CONFIG } from "@/lib/config";
 import { useInView } from "@/lib/hooks/useInView";
 
 const socialLinks = [
@@ -59,7 +59,7 @@ export function Footer() {
               <Button
                 size="default"
                 variant="outline"
-                onClick={scrollToDiscoveryCall}
+                onClick={() => window.open(CALENDLY_CONFIG.url, "_blank", "noopener,noreferrer")}
                 className="border-primary/30 text-foreground hover:bg-primary/5 hover:scale-[1.02] active:scale-[0.98] transition-all"
               >
                 Book Discovery Call

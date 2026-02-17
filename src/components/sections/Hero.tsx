@@ -4,7 +4,8 @@ import { motion } from "framer-motion";
 import { ArrowRight, Phone, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { scrollToProducts, scrollToDiscoveryCall } from "@/lib/utils/scroll";
+import { scrollToProducts } from "@/lib/utils/scroll";
+import { CALENDLY_CONFIG } from "@/lib/config";
 
 const trustPoints = [
   "100+ Biomarkers Analyzed",
@@ -91,7 +92,7 @@ export function Hero() {
                 <Button
                   size="lg"
                   variant="outline"
-                  onClick={scrollToDiscoveryCall}
+                  onClick={() => window.open(CALENDLY_CONFIG.url, "_blank", "noopener,noreferrer")}
                   className="w-full sm:w-auto border-primary/30 hover:bg-primary/5 px-5 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base"
                 >
                   <Phone className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
