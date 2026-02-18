@@ -108,8 +108,8 @@ const itemVariants = {
 
 export function Biomarkers() {
   return (
-    <section className="snap-section py-8 lg:py-12 bg-gradient-to-b from-card via-card to-background overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="snap-section py-10 sm:py-12 lg:py-16 bg-gradient-to-b from-card via-card to-background overflow-hidden">
+      <div className="container mx-auto px-5 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -126,10 +126,10 @@ export function Biomarkers() {
             <FlaskConical className="w-4 h-4" />
             Comprehensive Testing
           </motion.div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4">
             <span className="bg-gradient-to-r from-primary via-primary to-primary/70 bg-clip-text text-transparent">100+</span> Biomarkers Analyzed
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
             A comprehensive look at your body's key health indicators across
             8 critical systems
           </p>

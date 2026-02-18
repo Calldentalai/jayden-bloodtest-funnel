@@ -36,8 +36,8 @@ export function Testimonials() {
   const { ref, isInView } = useInView();
 
   return (
-    <section className="snap-section py-8 sm:py-10 lg:py-12 bg-background">
-      <div ref={ref} className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="snap-section py-10 sm:py-12 lg:py-16 bg-background">
+      <div ref={ref} className="container mx-auto px-5 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div
           className={`text-center mb-6 sm:mb-8 ${isInView ? "animate-fade-in-up" : "opacity-0"}`}

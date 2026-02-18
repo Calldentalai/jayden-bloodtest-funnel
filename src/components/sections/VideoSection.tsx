@@ -10,16 +10,16 @@ export function VideoSection() {
   const { ref, isInView } = useInView();
 
   return (
-    <section className="snap-section py-8 lg:py-12 bg-card">
-      <div ref={ref} className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="snap-section py-10 sm:py-12 lg:py-16 bg-card">
+      <div ref={ref} className="container mx-auto px-5 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div
           className={`text-center mb-6 ${isInView ? "animate-fade-in-up" : "opacity-0"}`}
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3 sm:mb-4">
             See How It Works
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
             Watch Jayden explain how comprehensive blood testing can transform
             your understanding of your health
           </p>

@@ -74,8 +74,8 @@ const lineVariants = {
 
 export function HowItWorks() {
   return (
-    <section id="how-it-works" className="snap-section py-8 lg:py-12 bg-background scroll-mt-16">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="how-it-works" className="snap-section py-10 sm:py-12 lg:py-16 bg-background scroll-mt-16">
+      <div className="container mx-auto px-5 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -94,10 +94,10 @@ export function HowItWorks() {
             <ArrowRight className="w-4 h-4" />
             Simple Process
           </motion.div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4">
             How It <span className="text-primary">Works</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
             Getting your comprehensive blood analysis is simple — four easy steps
             to understanding your health
           </p>

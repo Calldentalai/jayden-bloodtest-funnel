@@ -31,8 +31,8 @@ export function AboutSection() {
   const { ref, isInView } = useInView();
 
   return (
-    <section id="about" className="snap-section py-8 sm:py-10 lg:py-12 bg-card scroll-mt-16 overflow-hidden">
-      <div ref={ref} className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="snap-section py-10 sm:py-12 lg:py-16 bg-card scroll-mt-16 overflow-hidden">
+      <div ref={ref} className="container mx-auto px-5 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center max-w-6xl mx-auto">
           {/* Image Column */}
           <div

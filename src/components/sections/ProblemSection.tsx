@@ -61,8 +61,8 @@ const cardVariants = {
 
 export function ProblemSection() {
   return (
-    <section className="snap-section py-8 lg:py-12 bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="snap-section py-10 sm:py-12 lg:py-16 bg-background">
+      <div className="container mx-auto px-5 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -81,11 +81,11 @@ export function ProblemSection() {
             <AlertCircle className="w-4 h-4" />
             Sound Familiar?
           </motion.div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4">
             Does This Sound{" "}
             <span className="text-primary">Familiar?</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
             Most people don&apos;t realize their &quot;normal&quot; blood work could be hiding
             the real story about their health
           </p>

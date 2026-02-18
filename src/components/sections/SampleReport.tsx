@@ -140,17 +140,17 @@ function BiomarkerBar({ marker, index }: { marker: typeof sampleMarkers[0], inde
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
       transition={{ delay: 0.1 * index }}
-      className="p-4 hover:bg-muted/30 transition-colors rounded-lg"
+      className="p-3 sm:p-4 hover:bg-muted/30 transition-colors rounded-lg"
     >
-      <div className="flex items-center justify-between mb-2">
-        <div className="flex items-center gap-2">
-          <div className={`w-2 h-2 rounded-full ${statusInfo.dotColor}`} />
-          <span className="font-medium text-foreground">{marker.name}</span>
+      <div className="flex items-center justify-between mb-2 gap-2">
+        <div className="flex items-center gap-2 min-w-0">
+          <div className={`w-2 h-2 rounded-full flex-shrink-0 ${statusInfo.dotColor}`} />
+          <span className="font-medium text-sm sm:text-base text-foreground truncate">{marker.name}</span>
         </div>
-        <div className="flex items-center gap-2">
-          <span className="font-bold text-foreground">{marker.value}</span>
-          <span className="text-xs text-muted-foreground">{marker.unit}</span>
-          <span className={`text-xs px-2 py-0.5 rounded-full border ${statusInfo.color}`}>
+        <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
+          <span className="font-bold text-sm sm:text-base text-foreground">{marker.value}</span>
+          <span className="text-[10px] sm:text-xs text-muted-foreground">{marker.unit}</span>
+          <span className={`text-[10px] sm:text-xs px-1.5 sm:px-2 py-0.5 rounded-full border whitespace-nowrap ${statusInfo.color}`}>
             {statusInfo.text}
           </span>
         </div>
@@ -201,8 +201,8 @@ function BiomarkerBar({ marker, index }: { marker: typeof sampleMarkers[0], inde
 
 export function SampleReport() {
   return (
-    <section className="snap-section py-8 lg:py-12 bg-gradient-to-b from-background via-background to-muted/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="snap-section py-10 sm:py-12 lg:py-16 bg-gradient-to-b from-background via-background to-muted/30">
+      <div className="container mx-auto px-5 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -219,16 +219,16 @@ export function SampleReport() {
             <Activity className="w-4 h-4" />
             Sample Report Preview
           </motion.div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4">
             Your <span className="text-primary">Personalized</span> Report
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
             See exactly what you'll receive — a comprehensive analysis that goes
             far beyond standard lab results
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center max-w-6xl mx-auto">
           {/* Sample Report Preview with Progress Bars */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -238,30 +238,30 @@ export function SampleReport() {
           >
             <Card className="border-border/50 overflow-hidden shadow-2xl">
               {/* Header */}
-              <div className="bg-gradient-to-r from-primary via-primary/90 to-primary/80 px-6 py-5">
+              <div className="bg-gradient-to-r from-primary via-primary/90 to-primary/80 px-4 sm:px-6 py-4 sm:py-5">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                    <FileText className="w-6 h-6 text-white" />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center flex-shrink-0">
+                    <FileText className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-white text-lg">Biomarker Analysis</h3>
-                    <p className="text-sm text-white/80">Sample from your 80+ page report</p>
+                    <h3 className="font-semibold text-white text-base sm:text-lg">Biomarker Analysis</h3>
+                    <p className="text-xs sm:text-sm text-white/80">Sample from your 80+ page report</p>
                   </div>
                 </div>
               </div>
 
               {/* Stats summary */}
               <div className="grid grid-cols-3 divide-x divide-border/50 border-b border-border/50">
-                <div className="p-4 text-center">
-                  <p className="text-2xl font-bold text-emerald-600">2</p>
+                <div className="p-3 sm:p-4 text-center">
+                  <p className="text-xl sm:text-2xl font-bold text-emerald-600">2</p>
                   <p className="text-xs text-muted-foreground">Optimal</p>
                 </div>
-                <div className="p-4 text-center">
-                  <p className="text-2xl font-bold text-amber-600">2</p>
+                <div className="p-3 sm:p-4 text-center">
+                  <p className="text-xl sm:text-2xl font-bold text-amber-600">2</p>
                   <p className="text-xs text-muted-foreground">Need Attention</p>
                 </div>
-                <div className="p-4 text-center">
-                  <p className="text-2xl font-bold text-red-600">1</p>
+                <div className="p-3 sm:p-4 text-center">
+                  <p className="text-xl sm:text-2xl font-bold text-red-600">1</p>
                   <p className="text-xs text-muted-foreground">Low</p>
                 </div>
               </div>

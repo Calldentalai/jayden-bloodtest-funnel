@@ -23,8 +23,8 @@ export function DiscoveryCall() {
   };
 
   return (
-    <section id="discovery-call" className="snap-section py-8 lg:py-12 bg-primary/5 scroll-mt-16">
-      <div ref={ref} className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="discovery-call" className="snap-section py-10 sm:py-12 lg:py-16 bg-primary/5 scroll-mt-16">
+      <div ref={ref} className="container mx-auto px-5 sm:px-6 lg:px-8">
         <div
           className={`max-w-5xl mx-auto ${isInView ? "animate-fade-in-up" : "opacity-0"}`}
         >
@@ -52,7 +52,7 @@ export function DiscoveryCall() {
               </div>
 
               {/* Right - Content */}
-              <div className="md:col-span-3 p-8 lg:p-10">
+              <div className="md:col-span-3 p-5 sm:p-8 lg:p-10">
                 <div className="hidden md:inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
                   <Phone className="w-4 h-4" />
                   Looking for More Guidance?

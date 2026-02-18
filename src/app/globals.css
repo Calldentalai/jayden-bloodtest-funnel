@@ -193,17 +193,32 @@
 .delay-400 { animation-delay: 0.4s; }
 .delay-500 { animation-delay: 0.5s; }
 
-/* Full-page scroll snap sections */
-html {
-  scroll-snap-type: y proximity;
+/* Full-page scroll snap sections - disabled on mobile for smoother scrolling */
+@media (min-width: 1024px) {
+  html {
+    scroll-snap-type: y proximity;
+  }
+
+  .snap-section {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    scroll-snap-align: start;
+  }
 }
 
+/* Mobile: no snap, allow natural content flow */
 .snap-section {
-  min-height: 100svh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  scroll-snap-align: start;
+}
+
+@media (max-width: 1023px) {
+  .snap-section {
+    min-height: auto;
+  }
 }
 
 /* Reduced motion for accessibility */

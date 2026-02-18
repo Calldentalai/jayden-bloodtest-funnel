@@ -143,15 +143,15 @@ export function HealthQuiz() {
   return (
     <section
       id="health-quiz"
-      className="snap-section bg-card py-8 sm:py-10 lg:py-12 scroll-mt-16"
+      className="snap-section bg-card py-10 sm:py-12 lg:py-16 scroll-mt-16"
       ref={ref}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-5 sm:px-6 lg:px-8">
         <div className={`text-center mb-12 ${isInView ? "animate-fade-in-up" : "opacity-0"}`}>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4">
             How Well Do You <span className="text-primary">Really Know</span> Your Health?
           </h2>
-          <p className="text-muted-foreground text-lg sm:text-xl max-w-3xl mx-auto">
+          <p className="text-muted-foreground text-base sm:text-lg max-w-3xl mx-auto">
             Take this quick assessment to see if comprehensive blood testing could help you
           </p>
         </div>

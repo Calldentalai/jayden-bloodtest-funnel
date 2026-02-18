@@ -145,8 +145,8 @@ export function CaseStudies() {
   ];
 
   return (
-    <section className="snap-section py-8 md:py-12 bg-background">
-      <div className="container mx-auto px-4">
+    <section className="snap-section py-10 sm:py-12 lg:py-16 bg-background">
+      <div className="container mx-auto px-5 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div
           ref={titleRef}
@@ -154,10 +154,10 @@ export function CaseStudies() {
             titleInView ? "animate-fade-in-up" : "opacity-0"
           }`}
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4">
             Real <span className="text-primary">Transformations</span>
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
             See how comprehensive blood testing changed these lives
           </p>
         </div>
@@ -199,10 +199,10 @@ export function CaseStudies() {
                     <div className="space-y-4 mb-6">
                       <div className="flex items-center justify-between text-xs font-semibold text-muted-foreground uppercase">
                         <span>Biomarker</span>
-                        <span className="flex items-center gap-4">
-                          <span className="w-20 text-center">Before</span>
-                          <ArrowRight className="w-4 h-4" />
-                          <span className="w-20 text-center">After</span>
+                        <span className="flex items-center gap-2 sm:gap-4">
+                          <span className="w-14 sm:w-20 text-center">Before</span>
+                          <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
+                          <span className="w-14 sm:w-20 text-center">After</span>
                         </span>
                       </div>
 
@@ -211,12 +211,12 @@ export function CaseStudies() {
                           key={markerIndex}
                           className="flex items-center justify-between py-2 border-b border-border last:border-0"
                         >
-                          <div className="flex-1">
-                            <div className="font-medium text-sm">{marker.name}</div>
+                          <div className="flex-1 min-w-0">
+                            <div className="font-medium text-sm truncate">{marker.name}</div>
                             <div className="text-xs text-muted-foreground">{marker.unit}</div>
                           </div>
-                          <div className="flex items-center gap-4">
-                            <div className="w-20 text-center">
+                          <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
+                            <div className="w-14 sm:w-20 text-center">
                               <div
                                 className={`font-semibold text-sm ${getStatusColor(
                                   marker.before.status
@@ -230,8 +230,8 @@ export function CaseStudies() {
                                 {getStatusLabel(marker.before.status)}
                               </div>
                             </div>
-                            <ArrowRight className="w-4 h-4 text-primary flex-shrink-0" />
-                            <div className="w-20 text-center">
+                            <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 text-primary flex-shrink-0" />
+                            <div className="w-14 sm:w-20 text-center">
                               <div
                                 className={`font-semibold text-sm ${getStatusColor(
                                   marker.after.status
